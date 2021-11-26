@@ -1,4 +1,4 @@
-import axiosClient from "./axiosClinet";
+import axiosClient from "./axiosClient";
 
 export const category = {
   movie: "movie",
@@ -6,7 +6,7 @@ export const category = {
 };
 
 export const movieType = {
-  upComing: "upcoming",
+  upcoming: "upcoming",
   popular: "popular",
   top_rated: "top_rated",
 };
@@ -18,7 +18,7 @@ export const tvType = {
 };
 
 const tmdbApi = {
-  getMovieList: (type, params) => {
+  getMoviesList: (type, params) => {
     const url = "movie/" + movieType[type];
     return axiosClient.get(url, params);
   },
@@ -27,7 +27,7 @@ const tmdbApi = {
     return axiosClient.get(url, params);
   },
   getVideos: (cate, id) => {
-    const url = category[cate] + "/" + id + "videos";
+    const url = category[cate] + "/" + id + "/videos";
     return axiosClient.get(url, { params: {} });
   },
   search: (cate, params) => {
