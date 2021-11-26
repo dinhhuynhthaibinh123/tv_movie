@@ -1,11 +1,21 @@
 import React from "react";
 
 import { useParams } from "react-router";
+
+import PageHeader from "../components/page-header/PageHeader";
+
+import { category as cate } from "../api/tmdbApi";
+
 const Catalog = () => {
   const { category } = useParams();
 
-
-  return <div>Catalog</div>;
+  return (
+    <>
+      <PageHeader>
+        {category === cate.movie ? "Movies" : "Tv Series"}
+      </PageHeader>
+    </>
+  );
 };
 
 export default Catalog;
